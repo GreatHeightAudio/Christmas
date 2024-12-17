@@ -261,10 +261,10 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
 
   const notification = document.getElementById("notification");
   if (selected.value === current.correct) {
-    notification.innerText = "Correct! Well done.";
+    notification.innerText = "Correct! You're just too good!";
     notification.className = "correct";
   } else {
-    notification.innerText = "Incorrect. Try again next time!";
+    notification.innerText = "Almost got it! Try a different answer!";
     notification.className = "incorrect";
   }
 });
