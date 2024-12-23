@@ -232,10 +232,11 @@ const weeklyQuestions = [
   // Add more questions here with startDate, question, options, and correct answer
 ];
 
-// Find the current question based on the date
 function getCurrentQuestion() {
   const today = new Date().toISOString().split("T")[0];
-  return weeklyQuestions.find(q => today >= q.startDate) || weeklyQuestions[0];
+  return weeklyQuestions
+    .filter(q => today >= q.startDate)
+    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))[0] || weeklyQuestions[0];
 }
 
 // Populate the question and options
