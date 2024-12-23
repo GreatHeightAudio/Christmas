@@ -235,8 +235,9 @@ const weeklyQuestions = [
 function getCurrentQuestion() {
   const today = new Date().toISOString().split("T")[0];
   return weeklyQuestions
-    .filter(q => today >= q.startDate)
-    .sort((a, b) => new Date(b.startDate) - new Date(a.startDate))[0] || weeklyQuestions[0];
+    .filter(q => today >= q.startDate) // Keep questions that start on or before today
+    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate)) // Sort by startDate ascending
+    .pop(); // Get the latest question
 }
 
 // Populate the question and options
