@@ -22,9 +22,8 @@ h1 {
   font-weight: bold;
 }
 
-p, label, button {
+p, label {
   font-size: 1.2em;
-  font-weight: bold;
 }
 
 button {
@@ -55,3 +54,18 @@ button:hover {
 .incorrect {
   color: #ff4444; /* Red */
 }
+
+/* Adjusting the answer options */
+label {
+  display: block;
+  font-size: 1.1em;
+  font-weight: normal; /* Remove bold styling */
+  margin: 15px 0; /* Add vertical spacing */
+  text-align: left; /* Align text to the left */
+}
+
+input[type="radio"] {
+  margin-right: 10px; /* Add space between the dot and text */
+  vertical-align: middle; /* Align the dot vertically with the text */
+}
+
