@@ -34,7 +34,7 @@ const weeklyQuestions = [
     startDate: "2025-01-20",
     question: "When Isaac and Samuel were on the same baseball team, what team were they on?",
     options: { A: "The Cardinals", B: "The Nationals", C: "The White Sox", D: "The Cubs" },
-    correct: "D"
+    correct: "B"
   },
   {
     startDate: "2025-01-27",
