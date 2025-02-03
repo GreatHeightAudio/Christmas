@@ -222,7 +222,8 @@ const weeklyQuestions = [
     options: { A: "Pheonix", B: "Washington DC", C: "San Diego", D: "Denver" },
     correct: "A"
   },
-  
+
+];
   // Add more questions here with startDate, question, options, and correct answer
 
 // Get the current week's Monday
