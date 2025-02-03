@@ -43,7 +43,7 @@ const weeklyQuestions = [
     correct: "A"
   },
   {
-    startDate: "2025-02-3",
+    startDate: "2025-02-03",
     question: "Where did we eat at a restaurant we picked because Isaac had a crush on Selena Gomez?",
     options: { A: "Washington DC", B: "Louisville", C: "Indianapolis", D: "Memphis" },
     correct: "B"
