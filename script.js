@@ -267,4 +267,4 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
 });
 
 // Load the question when the page loads
-loadQuestion();
+window.onload = loadQuestion; // Ensure it loads after DOM is ready
