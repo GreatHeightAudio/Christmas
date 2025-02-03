@@ -227,10 +227,11 @@ const weeklyQuestions = [
 ];
 
 function getCurrentQuestion() {
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Remove time component
   return weeklyQuestions
-    .filter(q => today >= q.startDate) // Keep questions that start on or before today
-    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate)) // Sort by startDate ascending
+    .filter(q => new Date(q.startDate) <= today) // Only questions that started before or today
+    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate)) // Sort ascending by date
     .pop(); // Get the latest question
 }
 
