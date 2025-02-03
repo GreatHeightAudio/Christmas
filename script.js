@@ -44,12 +44,6 @@ const weeklyQuestions = [
   },
   {
     startDate: "2025-02-3",
-    question: "Who was Mama’s maid of honor?",
-    options: { A: "Kim Z", B: "Kim S", C: "Jennifer", D: "Lisa" },
-    correct: "D"
-  },
-  {
-    startDate: "2025-02-3",
     question: "Where did we eat at a restaurant we picked because Isaac had a crush on Selena Gomez?",
     options: { A: "Washington DC", B: "Louisville", C: "Indianapolis", D: "Memphis" },
     correct: "B"
