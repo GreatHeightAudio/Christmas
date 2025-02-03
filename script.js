@@ -224,25 +224,36 @@ const weeklyQuestions = [
   },
   
   // Add more questions here with startDate, question, options, and correct answer
-];
 
-function getCurrentQuestion() {
+// Get the current week's Monday
+function getCurrentMonday() {
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // Remove time component
-  return weeklyQuestions
-    .filter(q => new Date(q.startDate) <= today) // Only questions that started before or today
-    .sort((a, b) => new Date(a.startDate) - new Date(b.startDate)) // Sort ascending by date
-    .pop(); // Get the latest question
+  const day = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+  const diff = today.getDate() - day + (day === 0 ? -6 : 1); // Adjust when Sunday
+  const monday = new Date(today.setDate(diff));
+  monday.setHours(0, 0, 0, 0);
+  return monday.toISOString().split("T")[0];
+}
+
+// Get the current week's question
+function getCurrentQuestion() {
+  const currentMonday = getCurrentMonday();
+  return weeklyQuestions.find(q => q.startDate === currentMonday);
 }
 
 // Populate the question and options
 function loadQuestion() {
   const current = getCurrentQuestion();
-  document.getElementById("question").innerText = current.question;
-  document.getElementById("optionA").innerText = current.options.A;
-  document.getElementById("optionB").innerText = current.options.B;
-  document.getElementById("optionC").innerText = current.options.C;
-  document.getElementById("optionD").innerText = current.options.D;
+  if (current) {
+    document.getElementById("question").innerText = current.question;
+    document.getElementById("optionA").innerText = current.options.A;
+    document.getElementById("optionB").innerText = current.options.B;
+    document.getElementById("optionC").innerText = current.options.C;
+    document.getElementById("optionD").innerText = current.options.D;
+  } else {
+    document.getElementById("question").innerText = "No question available this week.";
+    document.getElementById("options").style.display = "none";
+  }
 }
 
 // Handle form submission
@@ -268,3 +279,4 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
 
 // Load the question when the page loads
 window.onload = loadQuestion; // Ensure it loads after DOM is ready
+
