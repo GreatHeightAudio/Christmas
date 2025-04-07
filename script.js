@@ -97,7 +97,7 @@ const weeklyQuestions = [
     correct: "D"
   },
   {
-    startDate: "2025-04-7",
+    startDate: "2025-04-07",
     question: "How much money were the kids given on Mamo’s famous dollar store runs?",
     options: { A: "$1", B: "$2", C: "$3", D: "$5" },
     correct: "C"
@@ -121,7 +121,7 @@ const weeklyQuestions = [
     correct: "A"
   },
   {
-    startDate: "2025-05-5",
+    startDate: "2025-05-05",
     question: "Where have we seen the Thunder play?",
     options: { A: "Memphis", B: "St. Louis", C: "Chicago", D: "New Orleans" },
     correct: "A"
