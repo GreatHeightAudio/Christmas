@@ -122,9 +122,9 @@ const weeklyQuestions = [
   },
   {
     startDate: "2025-05-05",
-    question: "Where have we seen the Thunder play?",
-    options: { A: "Memphis", B: "St. Louis", C: "Chicago", D: "New Orleans" },
-    correct: "A"
+    question: "Lucy once had a hat with such big lettering that it became a family inside joke. What is that inside joke?",
+    options: { A: "ELEWARE", B: "RKANSAS", C: "SHINTON", D: "ENNESSEE" },
+    correct: "C"
   },
   {
     startDate: "2025-05-12",
