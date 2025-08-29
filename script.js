@@ -223,10 +223,10 @@ const weeklyQuestions = [
     correct: "A"
   },
   {
-  startDate: "2025-09-01"
-  question: "Sam worked at Shave The Planet for many years! Which of the followinh flavors was NOT offered at the time?"
-  options: { A: "Tropical Sunrise", B: "Invisibility Cloak", C: "Blue Lightning", D: "Royal Wedding" },
-  correct: "C"
+    startDate: "2025-09-01",
+    question: "Sam worked at Shave The Planet for many years! Which of the followinh flavors was NOT offered at the time?",
+    options: { A: "Tropical Sunrise", B: "Invisibility Cloak", C: "Blue Lightning", D: "Royal Wedding" },
+    correct: "C"
   },
 
 ];
