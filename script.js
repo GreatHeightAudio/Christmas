@@ -224,7 +224,7 @@ const weeklyQuestions = [
   },
   {
     startDate: "2025-09-01",
-    question: "Sam worked at Shave The Planet for many years! Which of the followinh flavors was NOT offered at the time?",
+    question: "Sam worked at Shave The Planet for many years! Which of the following flavors was NOT offered at the time?",
     options: { A: "Tropical Sunrise", B: "Invisibility Cloak", C: "Blue Lightning", D: "Royal Wedding" },
     correct: "C"
   },
