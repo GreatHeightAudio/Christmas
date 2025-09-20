@@ -230,8 +230,8 @@ const weeklyQuestions = [
   },
   {
     startDate: "2025-09-15",
-    question: "What was the brand of flip flop that all the girls in the smith-Fuhrman family buy each summer?",
-    options: { A: "Wildflower", B: "Yellow Box", C: "Birkenstock", D: "Sunflower" },
+    question: "Happy Birthday! (I'm writing this in 2024 so don't let 2025 Sam off the hook of saying hbd)... What does your family love about you?",
+    options: { A: "Your joy, kindness, and beautiful smile in every situation", B: "Your passion for Jesus and how you live in his image", C: "Your cooking. 100% gotta be the food.", D: "How you worked so hard to provide for and raise 3 great children and Isaac (i'm jk Isaac)" },
     correct: ["A", "B", "C", "D"] 
   },
   {
@@ -317,8 +317,15 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
     return;
   }
 
+  const answer = selected.value; // e.g., "A", "B", "C", "D"
   const notification = document.getElementById("notification");
-  if (question.correct.includes(answer)) {
+
+  // Support both a single string or an array of strings
+  const correctAnswers = Array.isArray(current.correct)
+    ? current.correct
+    : [current.correct];
+
+  if (correctAnswers.includes(answer)) {
     notification.innerText = "Correct! You're just too good!";
     notification.className = "correct";
   } else {
