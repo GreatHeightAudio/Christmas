@@ -229,16 +229,10 @@ const weeklyQuestions = [
     correct: "C"
   },
   {
-    startDate: "2025-09-15",
+    startDate: "2025-09-22",
     question: "Happy Birthday! (I'm writing this in 2024 so don't let 2025 Sam off the hook of saying hbd)... What does your family love about you?",
     options: { A: "Your joy, kindness, and beautiful smile in every situation", B: "Your passion for Jesus and how you live in his image", C: "Your cooking. 100% gotta be the food.", D: "How you worked so hard to provide for and raise 3 great children and Isaac (i'm jk Isaac)" },
     correct: ["A", "B", "C", "D"] 
-  },
-  {
-    startDate: "2025-09-22",
-    question: "What was the brand of flip flop that all the girls in the smith-Fuhrman family buy each summer?",
-    options: { A: "Wildflower", B: "Yellow Box", C: "Birkenstock", D: "Sunflower" },
-    correct: "B"
   },
   {
     startDate: "2025-09-29",
@@ -265,10 +259,46 @@ const weeklyQuestions = [
     correct: "D"
   },
   {
-    startDate: "2025-10-20",
+    startDate: "2025-10-27",
     question: "What did Lucy name her Build-a-bear she got on her Daddy-daughter trip to STL?",
     options: { A: "Matt Carpenter", B: "Ozzie Smith", C: "Skip Schumaker", D: "Lee Smith" },
     correct: "C"
+  },
+  {
+    startDate: "2025-11-03",
+    question: "What was the brand of flip flop that all the girls in the smith-Fuhrman family buy each summer?",
+    options: { A: "Wildflower", B: "Yellow Box", C: "Birkenstock", D: "Sunflower" },
+    correct: "B"
+  },
+  {
+    startDate: "2025-11-10",
+    question: "Sam did an independent study as a part of the GT program... what did he choose?",
+    options: { A: "Building a cigar box guitar", B: "Learning the mandolin", C: "Writing and shooting a short film", D: "Modeling an architectural building" },
+    correct: "B"
+  },
+  {
+    startDate: "2025-11-17",
+    question: "What fraternity was Sam a part of for a whole 5 seconds in college?",
+    options: { A: "Phi Kappa Tau", B: "Sigma Chi", C: "Lambda Chi Alpha", D: "Kappa Sigma" },
+    correct: "A"
+  },
+  {
+    startDate: "2025-11-17",
+    question: "Back at the 4299, while sleeping, Isaac sprinted straight into a _____ in the boys room.",
+    options: { A: "Bed Frame", B: "Wall", C: "Brother", D: "Fan" },
+    correct: "D"
+  },
+  {
+    startDate: "2025-11-24",
+    question: "What toy did Sam recieve for Christmas after he heard that Dad had one as a kid?",
+    options: { A: "Baseball Card Set", B: "Slot Car Track", C: "Evil Knievil Figurine", D: "Socks" },
+    correct: "B"
+  },
+  {
+    startDate: "2025-12-01",
+    question: "AND IT'S CHRISTMAS SEASONS ONCE AGAIN... hopefully you enjoyed SMITHLE! Unfortunately that's all the questions we had prepared, but we hope that 2025 was an amazing year and that you know we love you a ton! <3",
+    options: { A: "Deck The Halls", B: "With bounds of questions", C: "Fa La La La La, La La La La", D: "Idk the next part of the song I can't lie to you" },
+    correct: ["A","B","C","D"]
   },
 
 
