@@ -228,6 +228,49 @@ const weeklyQuestions = [
     options: { A: "Tropical Sunrise", B: "Invisibility Cloak", C: "Blue Lightning", D: "Royal Wedding" },
     correct: "C"
   },
+  {
+    startDate: "2025-09-15",
+    question: "What was the brand of flip flop that all the girls in the smith-Fuhrman family buy each summer?",
+    options: { A: "Wildflower", B: "Yellow Box", C: "Birkenstock", D: "Sunflower" },
+    correct: ["A", "B", "C", "D"] 
+  },
+  {
+    startDate: "2025-09-22",
+    question: "What was the brand of flip flop that all the girls in the smith-Fuhrman family buy each summer?",
+    options: { A: "Wildflower", B: "Yellow Box", C: "Birkenstock", D: "Sunflower" },
+    correct: "B"
+  },
+  {
+    startDate: "2025-09-29",
+    question: "How does lucy always pronounce R2-D2?",
+    options: { A: "r too d tee", B: "r doo d too", C: "r tee doo too", D: "r tee d tee" },
+    correct: "C"
+  },
+  {
+    startDate: "2025-10-06",
+    question: "What store were we shopping at when Lucy saw an amputee for the first time and became afraid of going into that store from then on?",
+    options: { A: "Old Navy", B: "Justice", C: "PacSun", D: "Academy" },
+    correct: "B"
+  },
+  {
+    startDate: "2025-10-13",
+    question: "What was the name of the stuffed animal that Dad gifted you and later Lucy enjoyed playing with?",
+    options: { A: "Bunny bear", B: "Sadie", C: "Bear bunny", D: "Lamb" },
+    correct: "C"
+  },
+   {
+    startDate: "2025-10-20",
+    question: "What did Lucy name the fish she won at the fair? ",
+    options: { A: "Bill", B: "Lucy", C: "Tony", D: "Silvia" },
+    correct: "D"
+  },
+  {
+    startDate: "2025-10-20",
+    question: "What did Lucy name her Build-a-bear she got on her Daddy-daughter trip to STL?",
+    options: { A: "Matt Carpenter", B: "Ozzie Smith", C: "Skip Schumaker", D: "Lee Smith" },
+    correct: "C"
+  },
+
 
 ];
   // Add more questions here with startDate, question, options, and correct answer
