@@ -318,7 +318,7 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
   }
 
   const notification = document.getElementById("notification");
-  if (selected.value === current.correct) {
+  if (question.correct.includes(answer)) {
     notification.innerText = "Correct! You're just too good!";
     notification.className = "correct";
   } else {
