@@ -115,4 +115,21 @@ input[type="radio"] {
   margin-top: 12px;
 }
 
+/* Gray out disabled options */
+input[type="radio"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+label.disabled {
+  color: #b0b0b0;         /* gray text */
+  opacity: 1 !important;  /* keep consistent */
+  cursor: not-allowed;
+}
+
+label.disabled span {
+  color: #b0b0b0;         /* ensure the option text goes gray too */
+}
+
+
 
