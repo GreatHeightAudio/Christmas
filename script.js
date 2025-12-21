@@ -1,16 +1,10 @@
 const weeklyQuestions = [
   {
-    startDate: "2025-12-15",
-    question:
-      "Chrissy has the following 4 options in front of her. Stella will be shown the same options and Chrissy must choose which one she thinks Stella will start eating first. Which one does she bet on?",
-    options: {
-      A: "Spaghetti",
-      B: "Chicken Noodle Soup",
-      C: "Bean Burrito",
-      D: "Cheetos",
-    },
-    correct: "D",
-  },
+  startDate: "2025-12-15",
+  question: "TEST — does the site show a question this week?",
+  options: { A: "Yes", B: "No", C: "Maybe", D: "It’s broken" },
+  correct: "A",
+},
   {
     startDate: "2025-12-29",
     question:
@@ -88,12 +82,16 @@ const weeklyQuestions = [
 // ----------------- Date Helpers -----------------
 function getCurrentMonday() {
   const today = new Date();
-  const day = today.getDay(); // 0 (Sunday) to 6 (Saturday)
-  const diff = today.getDate() - day + (day === 0 ? -6 : 1); // Adjust when Sunday
-  const monday = new Date(today.setDate(diff));
-  monday.setHours(0, 0, 0, 0);
-  return monday.toISOString().split("T")[0];
+  const day = today.getDay(); // 0=Sun ... 6=Sat
+  const diff = today.getDate() - day + (day === 0 ? -6 : 1);
+  const monday = new Date(today.getFullYear(), today.getMonth(), diff);
+
+  const y = monday.getFullYear();
+  const m = String(monday.getMonth() + 1).padStart(2, "0");
+  const d = String(monday.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
 }
+
 
 function getCurrentQuestion() {
   const currentMonday = getCurrentMonday();
