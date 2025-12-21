@@ -95,7 +95,12 @@ function getCurrentMonday() {
 
 function getCurrentQuestion() {
   const currentMonday = getCurrentMonday();
-  return weeklyQuestions.find((q) => q.startDate === currentMonday);
+
+  const eligible = weeklyQuestions
+    .filter(q => q.startDate <= currentMonday)
+    .sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
+
+  return eligible[0] || null;
 }
 
 function formatMondayPretty(isoDate) {
