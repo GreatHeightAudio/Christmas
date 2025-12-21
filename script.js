@@ -1,6 +1,17 @@
 // List of questions for each week with correct answers
 const weeklyQuestions = [
   {
+    startDate: "2025-12-20",
+    question:
+      "Chrissy has the following 4 options in front of her. Stella will be shown the same options and Chrissy must choose which one she thinks Stella will start eating first. Which one does she bet on?",
+    options: {
+      A: "Spaghetti",
+      B: "Chicken Noodle Soup",
+      C: "Bean Burrito",
+      D: "Cheetos",
+    },
+    correct: "D",
+  {
     startDate: "2025-12-29",
     question:
       "Chrissy has the following 4 options in front of her. Stella will be shown the same options and Chrissy must choose which one she thinks Stella will start eating first. Which one does she bet on?",
