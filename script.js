@@ -1,6 +1,6 @@
 const weeklyQuestions = [
   {
-    startDate: "2025-12-20",
+    startDate: "2025-12-15",
     question:
       "Chrissy has the following 4 options in front of her. Stella will be shown the same options and Chrissy must choose which one she thinks Stella will start eating first. Which one does she bet on?",
     options: {
