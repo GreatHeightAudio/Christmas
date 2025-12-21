@@ -250,6 +250,22 @@ function showResultsOverlay(state) {
   };
 }
 
+function getWrongMessage(wrongCount) {
+  if (wrongCount === 1) return "No worries! This one is tricky!";
+  if (wrongCount === 2) return "Hey it could be worse... try again!";
+  if (wrongCount === 3) return "Ah! It was a coin flip that didn't go your way. Finish it off!";
+  return "Keep going!";
+}
+
+function getCorrectMessage(tries) {
+  if (tries === 1) return "BOOM! FIRST TRY! THIS IS YOUR WEEK!";
+  if (tries === 2) return "OKAY! Not too shabby. Just needed a warm up guess.";
+  if (tries === 3) return "Well, at least the 50/50 went your way.";
+  if (tries === 4) return "At this point, I bet you were pretty confident about that answer.";
+  return "Correct!";
+}
+
+
 // ----------------- Submit Handling -----------------
 document.getElementById("quiz-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -284,7 +300,7 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
     saveState(state);
 
     if (notification) {
-      notification.innerText = "Correct! You're just too good!";
+      notification.innerText = getCorrectMessage(state.tries);
       notification.className = "correct";
     }
 
@@ -302,7 +318,8 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
     disableOption(answer);
 
     if (notification) {
-      notification.innerText = "Almost got it! Try a different answer!";
+      const wrongCount = state.history.filter(h => h === "wrong").length;
+notification.innerText = getWrongMessage(wrongCount);
       notification.className = "incorrect";
     }
   }
