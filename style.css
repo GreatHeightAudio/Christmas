@@ -122,19 +122,22 @@ input[type="radio"]:disabled {
 }
 
 /* Wrong-guessed options: dark, semi-opaque red */
+/* Wrong-guessed options: brighter red for visibility */
 label.disabled {
-  color: rgba(180, 40, 40, 0.65);
+  color: rgba(255, 90, 90, 0.85); /* lighter, more vibrant red */
   cursor: not-allowed;
 }
 
 label.disabled span {
-  color: rgba(180, 40, 40, 0.65);
+  color: rgba(255, 90, 90, 0.85);
 }
 
+/* Radio dot still subdued */
 input[type="radio"]:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
 
 
 
