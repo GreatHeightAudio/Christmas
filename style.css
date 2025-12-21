@@ -121,15 +121,21 @@ input[type="radio"]:disabled {
   cursor: not-allowed;
 }
 
+/* Wrong-guessed options: dark, semi-opaque red */
 label.disabled {
-  color: #b0b0b0;         /* gray text */
-  opacity: 1 !important;  /* keep consistent */
+  color: rgba(180, 40, 40, 0.65);
   cursor: not-allowed;
 }
 
 label.disabled span {
-  color: #b0b0b0;         /* ensure the option text goes gray too */
+  color: rgba(180, 40, 40, 0.65);
 }
+
+input[type="radio"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 
 
 
