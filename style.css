@@ -69,3 +69,50 @@ input[type="radio"] {
   vertical-align: middle; /* Align the dot vertically with the text */
 }
 
+/* ---------- Results Overlay ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.overlay-card {
+  width: 100%;
+  max-width: 650px;
+  background: #0b2a4a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.overlay-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#resultsText {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 12px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.overlay-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+
