@@ -13,7 +13,7 @@ background-size: 20px 20px;
   margin: 50px auto;
   padding: 20px;
   max-width: 600px;
-  background-color: #ffffff50; /* Slight transparency */
+  background-color: rgba(20, 20, 20, 0.85); /* dark gray, much more opaque */
   border-radius: 10px;
 }
 
