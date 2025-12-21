@@ -1,7 +1,6 @@
-// List of questions for each week with correct answers
 const weeklyQuestions = [
   {
-    startDate: "2025-12-21",
+    startDate: "2025-12-20",
     question:
       "Chrissy has the following 4 options in front of her. Stella will be shown the same options and Chrissy must choose which one she thinks Stella will start eating first. Which one does she bet on?",
     options: {
@@ -11,6 +10,7 @@ const weeklyQuestions = [
       D: "Cheetos",
     },
     correct: "D",
+  },
   {
     startDate: "2025-12-29",
     question:
@@ -39,14 +39,24 @@ const weeklyQuestions = [
     startDate: "2026-01-12",
     question:
       "Chrissy has been gifted the opportunity to see any band live in concert. She (and whoever she brings) will be the only people in the venue. Whose concert does she choose?",
-    options: { A: "Taylor Swift", B: "Frank Sinatra", C: "The Beach Boys", D: "Joni Mitchell" },
+    options: {
+      A: "Taylor Swift",
+      B: "Frank Sinatra",
+      C: "The Beach Boys",
+      D: "Joni Mitchell",
+    },
     correct: "C",
   },
   {
     startDate: "2026-01-19",
     question:
       "There’s too many holidays. One of them has to go. Chrissy must decide which holiday to CANCEL! What holiday does she pull the plug on?",
-    options: { A: "MLK Day", B: "Halloween", C: "Valentines Day", D: "The 4th of July" },
+    options: {
+      A: "MLK Day",
+      B: "Halloween",
+      C: "Valentines Day",
+      D: "The 4th of July",
+    },
     correct: "D",
   },
   {
@@ -90,8 +100,17 @@ function getCurrentQuestion() {
   return weeklyQuestions.find((q) => q.startDate === currentMonday);
 }
 
+function formatMondayPretty(isoDate) {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const dt = new Date(y, m - 1, d);
+  return dt.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
 // ----------------- Per-week State -----------------
-// Tracks: tries, disabled choices, solved status for THIS week only
 function getStateKey() {
   return `smithle_state_${getCurrentMonday()}`;
 }
@@ -99,15 +118,17 @@ function getStateKey() {
 function loadState() {
   try {
     const raw = localStorage.getItem(getStateKey());
-    if (!raw) return { tries: 0, disabled: [], solved: false };
+    if (!raw) return { tries: 0, disabled: [], solved: false, history: [] };
+
     const parsed = JSON.parse(raw);
     return {
       tries: Number.isFinite(parsed.tries) ? parsed.tries : 0,
       disabled: Array.isArray(parsed.disabled) ? parsed.disabled : [],
       solved: !!parsed.solved,
+      history: Array.isArray(parsed.history) ? parsed.history : [],
     };
   } catch {
-    return { tries: 0, disabled: [], solved: false };
+    return { tries: 0, disabled: [], solved: false, history: [] };
   }
 }
 
@@ -118,7 +139,6 @@ function saveState(state) {
 // ----------------- UI Helpers -----------------
 function disableOption(letter) {
   const radio = document.querySelector(`input[name="option"][value="${letter}"]`);
-  // Your updated HTML uses labels with for="optionA" etc.
   const label = document.querySelector(`label[for="option${letter}"]`);
 
   if (radio) {
@@ -126,8 +146,7 @@ function disableOption(letter) {
     radio.checked = false;
   }
   if (label) {
-    label.style.opacity = "0.55";
-    label.style.cursor = "not-allowed";
+    label.classList.add("disabled"); // <-- uses your CSS to make it gray
   }
 }
 
@@ -135,11 +154,9 @@ function enableAllOptions() {
   ["A", "B", "C", "D"].forEach((letter) => {
     const radio = document.querySelector(`input[name="option"][value="${letter}"]`);
     const label = document.querySelector(`label[for="option${letter}"]`);
+
     if (radio) radio.disabled = false;
-    if (label) {
-      label.style.opacity = "1";
-      label.style.cursor = "pointer";
-    }
+    if (label) label.classList.remove("disabled");
   });
 }
 
@@ -160,7 +177,6 @@ function loadQuestion() {
 
   if (!current) {
     document.getElementById("question").innerText = "No question available this week.";
-    // hide options nicely (no need for an #options wrapper)
     document.getElementById("quiz-form").style.display = "none";
     return;
   }
@@ -173,25 +189,31 @@ function loadQuestion() {
   document.getElementById("optionC").innerText = current.options.C ?? "";
   document.getElementById("optionD").innerText = current.options.D ?? "";
 
-  // Reset then re-apply disabled answers from past wrong guesses
   enableAllOptions();
   clearSelection();
+
+  // Re-disable already-guessed wrong answers
   state.disabled.forEach(disableOption);
 
-  // If already solved (refresh, or they came back), show results again
+  // If already solved, show results again
   if (state.solved) {
-    showResultsOverlay(current, state.tries);
+    showResultsOverlay(state);
   }
 }
 
 // ----------------- Results Overlay -----------------
-function buildShareText(current, tries) {
-  const monday = getCurrentMonday();
-  // Example: "SMITHLE (2026-01-05) — got it in 3 tries!"
-  return `SMITHLE (${monday}) — I got it in ${tries} ${tries === 1 ? "try" : "tries"}!`;
+function buildShareText(state) {
+  const mondayISO = getCurrentMonday();
+  const mondayPretty = formatMondayPretty(mondayISO);
+
+  const squares = state.history
+    .map((h) => (h === "correct" ? "🟩" : "🟥"))
+    .join("");
+
+  return `SMITHLE · ${mondayPretty}\n${squares}\n${state.tries} ${state.tries === 1 ? "try" : "tries"}`;
 }
 
-function showResultsOverlay(current, tries) {
+function showResultsOverlay(state) {
   const overlay = document.getElementById("resultsOverlay");
   const resultsText = document.getElementById("resultsText");
   const copyBtn = document.getElementById("copyBtn");
@@ -199,17 +221,15 @@ function showResultsOverlay(current, tries) {
 
   if (!overlay || !resultsText || !copyBtn || !closeBtn) return;
 
-  resultsText.value = buildShareText(current, tries);
+  resultsText.value = buildShareText(state);
   overlay.style.display = "flex";
 
-  // Copy button
   copyBtn.onclick = async () => {
     try {
       await navigator.clipboard.writeText(resultsText.value);
       copyBtn.innerText = "Copied!";
       setTimeout(() => (copyBtn.innerText = "Copy"), 1200);
     } catch {
-      // Fallback if clipboard is blocked
       resultsText.focus();
       resultsText.select();
       document.execCommand("copy");
@@ -218,12 +238,10 @@ function showResultsOverlay(current, tries) {
     }
   };
 
-  // Close button
   closeBtn.onclick = () => {
     overlay.style.display = "none";
   };
 
-  // Click outside to close
   overlay.onclick = (e) => {
     if (e.target === overlay) overlay.style.display = "none";
   };
@@ -240,7 +258,7 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
 
   // If already solved, just show results
   if (state.solved) {
-    showResultsOverlay(current, state.tries);
+    showResultsOverlay(state);
     return;
   }
 
@@ -253,12 +271,12 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
   const answer = selected.value; // "A", "B", "C", "D"
   const notification = document.getElementById("notification");
 
-  // Count tries on every submission (right or wrong)
   state.tries += 1;
 
   const correctAnswers = Array.isArray(current.correct) ? current.correct : [current.correct];
 
   if (correctAnswers.includes(answer)) {
+    state.history.push("correct");
     state.solved = true;
     saveState(state);
 
@@ -267,12 +285,13 @@ document.getElementById("quiz-form").addEventListener("submit", function (e) {
       notification.className = "correct";
     }
 
-    // Lock inputs after success (optional)
-    ["A", "B", "C", "D"].forEach((l) => disableOption(l));
+    // Lock inputs after success
+    ["A", "B", "C", "D"].forEach(disableOption);
 
-    // Show results overlay with copy text
-    showResultsOverlay(current, state.tries);
+    showResultsOverlay(state);
   } else {
+    state.history.push("wrong");
+
     // Disable the guessed option so they can't pick it again
     if (!state.disabled.includes(answer)) state.disabled.push(answer);
     saveState(state);
