@@ -1,14 +1,14 @@
 const weeklyQuestions = [
   {
     startDate: "2025-12-22",
-    question: "Isaac was chosen to be on a hit new TV show streaming on Tubi (lol). He’s been given the following choices for the series, which does he choose?",
+    question: "Republic Records needs Sam's help! He has to choose 3 different singers to team up and become the next hit music group. Who does he choose?",
     options: {
-      A: "“STINK!” - he’ll host a game show where contestants must smell whacky items blind and then guess the STINK for cash prizes!",
-      B: "“The Lonely Road” - he’ll host a talk show where he drives across the country but he never has any guests so he must converse only with himself.",
-      C: "“The Politics of Country Livin’” - he’ll travel across the american south interviewing the hard working blue collar members of the US. However, every episode ends with a lengthy discussion about the political state of the country… but this Tubi, he must agree with everything the other person says.",
-      D: "“Oops! I did it again!” - a reality TV show based off the classic “Impractical Jokers” where he must reenact famous celebrity crash and burn moments including but not limited to… Kanye’s VMA interruption, Will Smith’s Slap, and Fergies National Anthem."
+      A: "Tyler Joseph (Twenty One Pilots), Molly Rankin (Alvvays), and Matty Healy (The 1975)",
+      B: "Thom Yorke (Radiohead), Julian Casablancas (The Strokes), and Clairo",
+      C: "Ben Gibbard (Death Cab), Justin Vernon (Bon Iver), and Lorde",
+      D: "Jon Bellion, Janelle Monae, and Remi Wolf"
     },
-    correct: "D"
+    correct: "B"
   },
   {
     startDate: "2025-12-29",
@@ -79,21 +79,21 @@ const weeklyQuestions = [
   },
   {
     startDate: "2026-02-09",
-    question: "Republic Records needs Sam's help! He has to choose 3 different singers to team up and become the next hot music group. Who does he choose?",
+    question: "Isaac was chosen to be on a hit new TV show streaming on Tubi (lol). He’s been given the following choices for the series, which does he choose?",
     options: {
-      A: "Tyler Joseph (Twenty One Pilots), Molly Rankin (Alvvays), and Matty Healy (The 1975)",
-      B: "Thom Yorke (Radiohead), Julian Casablancas (The Strokes), and Clairo",
-      C: "Ben Gibbard (Death Cab), Justin Vernon (Bon Iver), and Lorde",
-      D: "Jon Bellion, Janelle Monae, and Remi Wolf"
+      A: "“STINK!” - he’ll host a game show where contestants must smell whacky items blind and then guess the STINK for cash prizes!",
+      B: "“The Lonely Road” - he’ll host a talk show where he drives across the country but he never has any guests so he must converse only with himself.",
+      C: "“The Politics of Country Livin’” - he’ll travel across the american south interviewing the hard working blue collar members of the US. However, every episode ends with a lengthy discussion about the political state of the country… but this Tubi, he must agree with everything the other person says.",
+      D: "“Oops! I did it again!” - a reality TV show based off the classic “Impractical Jokers” where he must reenact famous celebrity crash and burn moments including but not limited to… Kanye’s VMA interruption, Will Smith’s Slap, and Fergies National Anthem."
     },
-    correct: "B"
+    correct: "D"
   },
   {
     startDate: "2026-02-16",
     question: "If Isaac could choose a book to make it to the big screen, what book would he choose and who would be cast as the lead?",
     options: {
-      A: "",
-      B: "",
+      A: "Curious Incident of the Dog in the Night Time starring Murph",
+      B: "Mr. Mercedes starring Russell Crowe",
       C: "The Silent Patient starring Emma Stone",
       D: "The Kite Runner starring Ramy Youssef"
     },
