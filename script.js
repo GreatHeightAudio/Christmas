@@ -3,8 +3,8 @@ const weeklyQuestions = [
     startDate: "2025-12-22",
     question: "Republic Records needs Sam's help! He has to choose 3 different singers to team up and become the next hit music group. Who does he choose?",
     options: {
-      A: "Tyler Joseph (Twenty One Pilots), Molly Rankin (Alvvays), and Matty Healy (The 1975)",
-      B: "Thom Yorke (Radiohead), Julian Casablancas (The Strokes), and Clairo",
+      A: "Tyler Joseph (Twenty One Pilots), Molly Rankin (Alvvays), and Julian Casablancas (The Strokes)",
+      B: "Thom Yorke (Radiohead), Matty Healy (The 1975), and Clairo",
       C: "Ben Gibbard (Death Cab), Justin Vernon (Bon Iver), and Lorde",
       D: "Jon Bellion, Janelle Monae, and Remi Wolf"
     },
