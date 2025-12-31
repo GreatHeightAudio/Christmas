@@ -493,7 +493,7 @@ const weeklyQuestions = [
       C: "The 1990s",
       D: "The 2150s"
     },
-    correct: "A"
+    correct: "B"
   },
   {
     startDate: "2026-11-02",
@@ -537,7 +537,7 @@ const weeklyQuestions = [
       C: "Avatar the Last Airbender",
       D: "Spongebob"
     },
-    correct: "C"
+    correct: "A"
   }
 ];
 
