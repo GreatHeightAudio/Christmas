@@ -293,7 +293,7 @@ const weeklyQuestions = [
       A: "“Bring me to your leader.”",
       B: "“Do you speak english?”",
       C: "“Are you here to kill all of us?”",
-      D: "“Hello!” *waves*"
+      D: "“What up freaks, welcome to Earth!”"
     },
     correct: "D"
   },
